@@ -22,6 +22,22 @@
         @apply shadow bg-zinc-500/80 border-zinc-500 shadow-zinc-600 border rounded text-lime-300 p-4 m-12;
     }
 
+    .tile-container {
+        @apply shadow bg-zinc-500/80 border-zinc-500 shadow-zinc-600 border rounded text-lime-300 p-4 m-12;
+    }
+
+    .tile {
+        @apply w-32 shadow border rounded text-lime-200 p-4 m-2;
+    }
+
+    .tile-primary {
+        @apply bg-teal-300/80 border-teal-500 shadow-teal-600;
+    }
+
+    .tile-secondary {
+        @apply bg-cyan-300/80 border-cyan-500 shadow-cyan-600;
+    }
+
     .form-element {
         @apply py-1
     }

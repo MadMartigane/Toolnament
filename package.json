@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "prod": "cp -r dist/* /var/www/marius.click/html/toolnament/"
+    "prod": "rm -rf /var/www/marius.click/html/toolnament/* && cp -r dist/* /var/www/marius.click/html/toolnament/"
   },
   "dependencies": {
     "jarallax": "^2.1.3",
