@@ -22,12 +22,12 @@
         @apply shadow bg-zinc-500/80 border-zinc-500 shadow-zinc-600 border rounded text-lime-300 p-4 m-12;
     }
 
-    .tile-container {
-        @apply shadow bg-zinc-500/80 border-zinc-500 shadow-zinc-600 border rounded text-lime-300 p-4 m-12;
+    .tile-column {
+        @apply w-full shadow bg-zinc-500/80 border-zinc-500 shadow-zinc-600 border rounded p-1;
     }
 
     .tile {
-        @apply w-32 shadow border rounded text-lime-200 p-4 m-2;
+        @apply shadow border rounded text-lime-200 p-4 m-2;
     }
 
     .tile-primary {

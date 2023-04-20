@@ -14,7 +14,8 @@ import TeamNameTile from "@/components/TeamNameTile.vue";
             return {
                 displayDiagram: false,
                 teamNumber: 16,
-                teamList: [] as Array<TeamModel>
+                teamList: [] as Array<TeamModel>,
+                classDiagramNbColumn: {} as any
             }
         },
         methods: {
@@ -31,6 +32,7 @@ import TeamNameTile from "@/components/TeamNameTile.vue";
             generateDiagram (): void {
                 console.log("generator()");
                 this.displayDiagram = true;
+                this.classDiagramNbColumn[`grid-cols-${ this.teamNumber / 2 + 1 }`] = true;
             }
         },
         components: {
@@ -89,16 +91,20 @@ import TeamNameTile from "@/components/TeamNameTile.vue";
 
         <!-- diagram container -->
         <div
+                :class="classDiagramNbColumn"
                 v-if="displayDiagram"
-                class="tile-container">
+                class="grid gap-4 block-container">
+            <div
+                    v-if="displayDiagram"
+                    class="tile-column">
+                <div
+                        v-for="team in teamList">
                     <TeamNameTile
-                        v-for="team in teamList"
-                        :name="team.name"
-                        />
-
-
+                            :name="team.name"
+                            />
+                </div>
+            </div>
         </div>
-
     </div>
 </template>
 
