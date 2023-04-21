@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
     <div class="h-screen">
         <div class="main-container">
-            <TheWelcome />
+            <div class="block-container">
+                <font-awesome-icon icon="fa-solid fa-user-secret" />
+                <font-awesome-icon icon="fa-solid fa-user" />
+            </div>
         </div>
     </div>
 </template>

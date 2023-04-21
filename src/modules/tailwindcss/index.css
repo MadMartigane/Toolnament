@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    .nav {
+        @apply flex bg-slate-900 text-gray-900
+    }
+
+    .nav-item {
+        @apply flex-initial py-1 px-2 m-1 rounded bg-slate-300
+    }
+
+    .main-container {
+        @apply justify-center grid sm:grid-cols-1 lg:grid-cols-2
+    }
+
+    .block-container {
+        @apply shadow bg-sky-950/60 border-sky-950 shadow-slate-900 border rounded text-amber-300 hover:text-amber-400 p-4 m-12 overflow-y-scroll;
+    }
+
+    .tile-column {
+        @apply w-40 shadow bg-sky-800/60 border-sky-950 shadow-slate-900 border rounded p-1;
+    }
+
+    .tile {
+        @apply shadow border rounded text-lime-200 p-4 m-2;
+    }
+
+    .tile-primary {
+        @apply bg-teal-300/80 border-teal-500 shadow-teal-600;
+    }
+
+    .tile-secondary {
+        @apply bg-cyan-300/80 border-cyan-500 shadow-cyan-600;
+    }
+
+    .btn-primary {
+        @apply inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]
+    }
+
+    .btn-secondary {
+        @apply inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200
+    }
+
+    .form-element-input {
+        @apply relative mb-3
+    }
+
+    .form-element-input-input {
+        @apply block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0
+    }
+
+    .form-element-input-label {
+        @apply pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary
+    }
+}
+

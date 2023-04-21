@@ -10,7 +10,8 @@
 
 <template>
     <div class="tile tile-primary">
-        <p>{{ name }}</p>
+        <font-awesome-icon icon="fa-solid fa-users" />
+        <span class="py-0 px-1">{{ name }}</span>
     </div>
 </template>
 

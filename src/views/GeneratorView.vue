@@ -1,21 +1,36 @@
 
 <script lang="ts">
-    import TeamNameInput from "@/components/TeamNameInput.vue";
-import TeamNameTile from "@/components/TeamNameTile.vue";
+    import Input from "@/components/Input.vue";
+    import TeamNameTile from "@/components/TeamNameTile.vue";
+    import Button from "@/components/Button.vue";
 
     export interface TeamModel {
-        name: string,
-        id: number
+        name?: string,
+        id: string
     };
+    export interface DiagramPoule {
+        id: string,
+        teams: Array<string> // TeamModel ids
+    }
+    export interface DiagramMatch {
+        id: string,
+        teams: Array<string> // TeamModel ids
+        scores: Array<number>
+    }
+    export interface DiagramStructure {
+        poule: Array<DiagramPoule>,
+        match: Array<DiagramMatch>
+    }
 
     export default {
         name: "GeneratorView",
         data () {
             return {
                 displayDiagram: false,
-                teamNumber: 16,
+                teamNumber: 8,
                 teamList: [] as Array<TeamModel>,
-                classDiagramNbColumn: {} as any
+                classDiagramNbColumn: {} as any,
+                diagramStructure: {}
             }
         },
         methods: {
@@ -25,18 +40,23 @@ import TeamNameTile from "@/components/TeamNameTile.vue";
 
                 this.teamList.length = 0;
                 for (let i=0; i < this.teamNumber; i++) {
-                    this.teamList[i] = teamListBackup[i] || { name: `Team #${i}`, id: i };
+                    this.teamList[i] = teamListBackup[i] || { name: `Team #${i}`, id: `team_${i}` };
                 }
             },
+            onTeamNameUpdated (teamName: string, teamId: String): void {
+                console.log("[aTeamNameUpdated()] teamName: ", teamName);
+                console.log("[aTeamNameUpdated()] teamId: ", teamId);
 
+            },
             generateDiagram (): void {
-                console.log("generator()");
+                console.log("[generateDiagram()] this: ", this);
                 this.displayDiagram = true;
                 this.classDiagramNbColumn[`grid-cols-${ this.teamNumber / 2 + 1 }`] = true;
             }
         },
         components: {
-            TeamNameInput,
+            Button,
+            Input,
             TeamNameTile
         },
         mounted() {
@@ -68,23 +88,24 @@ import TeamNameTile from "@/components/TeamNameTile.vue";
                     </div>
 
                     <div class="flex justify-center">
-                        <button
+                        <Button
                                 @:click="generateDiagram()"
-                                type="button"
-                                class="btn-primary">Génération !</button>
-                        <button
-                                type="button"
-                                class="btn-secondary">Génération 2 !</button>
+                                text="Génération !"
+                                variant="primary" />
+                        <Button
+                                text="Génération 2 !"
+                                variant="secondary" />
                     </div>
 
                 </form>
             </div>
 
             <div class="block-container">
-                <TeamNameInput
+                <Input
                         v-for="team in teamList"
-                        :name="team.name"
+                        :value="team.name"
                         :id="team.id"
+                        @update:value="onTeamNameUpdated"
                         />
             </div>
         </div>
